@@ -289,13 +289,23 @@ void iplc_sim_push_pipeline_stage()
 
   
   /* 2. Check for BRANCH and correct/incorrect Branch Prediction */
-
+  if (pipeline[DECODE].itype == BRANCH) {
+  
+  }
+	
   /* 3. Check for LW delays due to use in ALU stage and if data hit/miss  
    *    add delay cycles if needed.
    */
-
+  if (pipeline[MEM].itype == LW) {
+  
+  }
+	
   /* 4. Check for SW mem acess and data miss .. add delay cycles if needed */
+  if (pipeline[MEM].itype == SW) {
+	  
+  }
   /* 5. Increment pipe_cycles 1 cycle for normal processing */
+  pipeline_cycles++;
   /* 6. push stages thru MEM->WB, ALU->MEM, DECODE->ALU, FETCH->ALU */
   
   // 7. This is a give'me -- Reset the FETCH stage to NOP via bezero */
